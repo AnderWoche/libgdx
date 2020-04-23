@@ -23,7 +23,7 @@ import com.badlogic.gdx.utils.reflect.ClassReflection;
 
 /** Ordered list of {@link MapLayer} instances owned by a {@link Map} */
 public class MapLayers implements Iterable<MapLayer> {
-	private Array<MapLayer> layers = new Array<MapLayer>();
+	protected final Array<MapLayer> layers = new Array<MapLayer>();
 
 	/** @param index
 	 * @return the MapLayer at the specified index */
@@ -71,6 +71,13 @@ public class MapLayers implements Iterable<MapLayer> {
 	/** @param layer layer to be removed */
 	public void remove (MapLayer layer) {
 		layers.removeValue(layer, true);
+	}
+
+	/**
+	 * remove all layers
+	 */
+	public void clear() {
+		this.layers.clear();
 	}
 
 	/** @return the number of map layers **/
